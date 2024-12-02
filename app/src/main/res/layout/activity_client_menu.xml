@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ADABAB"
+    tools:context=".ClientMenuActivity">
+
+    <!-- Título: Lista de Productos -->
+    <LinearLayout
+        android:id="@+id/linearTopButtons"
+        android:layout_width="413dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="40dp"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Botón "Volver" -->
+        <Button
+            android:id="@+id/btnVolverC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="230dp"
+            android:backgroundTint="#9C27B0"
+            android:text="Volver"
+            android:textColor="#FFFFFF" />
+
+        <!-- Botón "Carrito" -->
+        <ImageButton
+            android:id="@+id/btnCarrito"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Carrito de compras"
+            android:src="@drawable/file5" />
+    </LinearLayout>
+
+    <!-- Botones en la parte superior -->
+    <TextView
+        android:id="@+id/txtProductos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Lista de Productos"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearTopButtons" />
+
+    <!-- ListView para mostrar productos -->
+    <ListView
+        android:id="@+id/listViewProductosCliente"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:background="#F3F3F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtProductos" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

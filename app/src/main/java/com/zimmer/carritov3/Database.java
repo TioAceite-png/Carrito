@@ -36,11 +36,19 @@ public class Database extends SQLiteOpenHelper {
 
     public boolean insertProduct(String nombre, double precio) {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + Col_2 + " = ?", new String[]{nombre});
+        if (res.getCount() > 0) {
+            res.close();
+            return false; // Producto ya existe
+        }
+
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col_2, nombre);
         contentValues.put(Col_3, precio);
-        long result = db.insert(TABLE_NAME, null, contentValues);
 
+        long result = db.insert(TABLE_NAME, null, contentValues);
+        res.close();
         return result != -1;
     }
 

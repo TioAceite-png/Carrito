@@ -87,7 +87,7 @@
 
     <!-- ListView para mostrar productos -->
     <ListView
-        android:id="@+id/listViewProductos"
+        android:id="@+id/listViewProductosCliente"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#C5D9D4D4"

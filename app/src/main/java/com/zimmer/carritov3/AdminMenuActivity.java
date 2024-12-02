@@ -32,7 +32,7 @@ public class AdminMenuActivity extends AppCompatActivity {
         btnAgregar = findViewById(R.id.btnAgregar);
         btnEliminar = findViewById(R.id.btnEliminar);
         btnActualizar = findViewById(R.id.btnActualizar);
-        listViewProductos = findViewById(R.id.listViewProductos);
+        listViewProductos = findViewById(R.id.listViewProductosCliente);
         db = new Database(this);
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>());

@@ -17,15 +17,20 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 
 public class ClientMenuActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
     private ListView listViewProductosCliente;
     private Button btnVolverC;
     private ImageButton btnCarrito;
     private Database db;
     private ArrayAdapter<String> adapter;
+    private Button btnCerrarS;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class ClientMenuActivity extends AppCompatActivity {
         listViewProductosCliente = findViewById(R.id.listViewProductosCliente);
         btnVolverC = findViewById(R.id.btnVolverC);
         btnCarrito = findViewById(R.id.btnCarrito);
+        btnCerrarS = findViewById(R.id.btnCerrarS);
 
         db = new Database(this);
 
@@ -66,6 +72,13 @@ public class ClientMenuActivity extends AppCompatActivity {
                 Toast.makeText(ClientMenuActivity.this, "Seleccionaste: "+ selectedProduct, Toast.LENGTH_SHORT).show();
 
                 CarritoSingleton.getInstance().agregarProducto(selectedProduct);
+            }
+        });
+
+        btnCerrarS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
             }
         });
     }
